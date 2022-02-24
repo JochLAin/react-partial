@@ -1,0 +1,34 @@
+{
+  "name": "@jochlain/react-partial",
+  "description": "",
+  "version": "1.0.0",
+  "module": "lib/index.js",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npx tsc",
+    "watch": "npx tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JochLAin/react-partial.git"
+  },
+  "author": "Jocelyn Faihy <jocelyn.faihy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JochLAin/react-partial/issues"
+  },
+  "homepage": "https://github.com/JochLAin/react-partial#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "@types/react": "^17.0.39",
+    "react": "^17.0.2",
+    "typescript": "^4.5.5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
+  }
+}
