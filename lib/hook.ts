@@ -41,20 +41,20 @@ export const isPartial = (child?: ReactNode, type?: string|Symbol) => {
     return child.props.type === type;
 };
 
-export default function usePartial(children: ReactNode|ReactNode[], type: string|Symbol, opts: OptionType): [ReactNode[], ReactNode[]|undefined] {
+export default function usePartial(children: ReactNode|ReactNode[], type: string|Symbol, opts: OptionType): [ReactNode[], null|ReactNode[]] {
     if (!Array.isArray(children)) children = Children.toArray(children);
-    if (!('length' in children)) return [[], undefined];
+    if (!('length' in children)) return [[], null];
     const partials = findPartials(children, type);
 
     return [
         getChildren(children, type),
-        partials.length ? partials.map((partial) => partial.props.children) : undefined,
+        partials.length ? partials.map((partial) => partial.props.children) : null,
     ];
 }
 
-export function usePartials(children: ReactNode|ReactNode[], types: string[] = []): [ReactNode[], { [key: string]: ReactNode[]|undefined }] {
+export function usePartials(children: ReactNode|ReactNode[], types: string[] = []): [ReactNode[], { [key: string]: null|ReactNode[] }] {
     if (!Array.isArray(children)) children = Children.toArray(children);
-    if (!('length' in children)) return [[], {}];
+    if (!('length' in children)) return [[], types.reduce((accu, key) => ({ ...accu, [key]: null }), {})];
     const nodes = findPartials(children);
     if (!types.length) {
         types = nodes.map((partial) => partial.props.type).filter((type, idx, types) => types.indexOf(type) === idx);
@@ -64,7 +64,7 @@ export function usePartials(children: ReactNode|ReactNode[], types: string[] = [
         types.reduce((accu, type) => getChildren(accu, type), children),
         types.reduce((accu, name) => {
             const partials = nodes.filter((partial) => partial.props.type === name);
-            return { ...accu, [name]: partials.length ? partials : undefined };
+            return { ...accu, [name]: partials.length ? partials : null };
         }, {}),
     ];
 }

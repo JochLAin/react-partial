@@ -2,7 +2,7 @@
 
 ## Installation
 
-`npm install --save-dev react @jochlain/react-partial`
+`npm install --save react @jochlain/react-partial`
 
 ## Usage
 
