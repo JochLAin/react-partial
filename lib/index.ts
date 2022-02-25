@@ -1,5 +1,7 @@
-import Partial from "./component";
-import usePartial, { isPartial, usePartials } from "./hook";
+import Partial, { Provider, Part } from "./components";
 
 export default Partial;
-export { isPartial, usePartial, usePartials };
+export {
+    Provider as PartialProvider,
+    Part as PartialPart,
+};

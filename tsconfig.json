@@ -3,8 +3,9 @@
     "rootDir": "./",
     "outDir": "./",
     "sourceMap": true,
-    "module": "commonjs",
+    "module": "es6",
     "target": "es2021",
+    "jsx": "react",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
@@ -20,6 +21,6 @@
       "dom"
     ]
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
