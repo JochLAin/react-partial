@@ -1,7 +1,7 @@
 {
   "name": "@jochlain/react-partial",
   "description": "",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "module": "lib/index.js",
   "main": "lib/index.js",
   "directories": {
